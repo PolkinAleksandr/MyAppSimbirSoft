@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "92501744774",
+    "firebase_url": "https://androidsimbir.firebaseio.com",
+    "project_id": "androidsimbir",
+    "storage_bucket": "androidsimbir.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:92501744774:android:27d0328e288a26cb",
+        "android_client_info": {
+          "package_name": "aleksandrpolkin.ru.myproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "92501744774-48jg17ff7nuu3bu1k2evjg22bja5p8rc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5kfpkfwVlruOKeMlawbpttT7F0ElQsAQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

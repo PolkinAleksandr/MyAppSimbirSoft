@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">MyProject</string>
+    <string name="email">email</string>
+    <string name="loginHint">Введите свою почту</string>
+    <string name="password">Пароль</string>
+    <string name="PasswordHint">Введите пароль</string>
+    <string name="textBtnEntrance">Войти</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="profile">Profile</string>
+    <string name="exit">Exit</string>
+    <string name="profile_button_save">Сохранить</string>
+    <string name="phone">Телефон</string>
+    <string name="name">Имя</string>
+    <string name="pasword_repeat">Повторите пароль</string>
+    <string name="textBtnRegistration">Зарегистрироваться</string>
+    <string name="hint_enter_a_message">Введите сообщение</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="map">Карта</string>
+</resources>
