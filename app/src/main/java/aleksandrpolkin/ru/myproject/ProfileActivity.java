@@ -111,7 +111,7 @@ public class ProfileActivity extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         if(profile != null) {
-            if (profile.getEmail() == null) {
+            if (profile.getEmail() == "") {
 
                 if (user != null) {
                     email.setText(user.getEmail());
@@ -122,7 +122,9 @@ public class ProfileActivity extends AppCompatActivity {
             }
             phone.setText(profile.getPhone());
             name.setText(profile.getName());
-        }else{Toast.makeText(ProfileActivity.this,"error",Toast.LENGTH_SHORT).show();}
+        }else{Toast.makeText(ProfileActivity.this,"error",Toast.LENGTH_SHORT).show();
+
+        }
        }
 
 

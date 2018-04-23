@@ -122,8 +122,9 @@ public class MainActivity extends AppCompatActivity
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         loadProfile();
-        userEmailView.setText(user.getEmail());
-
+        if (user != null) {
+            userEmailView.setText(user.getEmail());
+        }
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
