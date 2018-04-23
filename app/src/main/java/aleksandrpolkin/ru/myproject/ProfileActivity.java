@@ -97,6 +97,10 @@ public class ProfileActivity extends AppCompatActivity {
                        if(profile != null){
                          outDispley(profile);
                       }
+                      else{
+                           outEmail();
+
+                       }
                 }
 
                 @Override
@@ -107,25 +111,29 @@ public class ProfileActivity extends AppCompatActivity {
 
     }
 
+    public void outEmail(){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        email.setText(user.getEmail());
+    }
+
     public void outDispley(Profile profile){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        if(profile != null) {
-            if (profile.getEmail() == "") {
+
+            if (profile.getEmail().equals("")) {
 
                 if (user != null) {
                     email.setText(user.getEmail());
-                    id = user.getUid();
+                   // id = user.getUid();
                 }
             } else {
                 email.setText(profile.getEmail());
             }
             phone.setText(profile.getPhone());
             name.setText(profile.getName());
-        }else{Toast.makeText(ProfileActivity.this,"error",Toast.LENGTH_SHORT).show();
 
         }
-       }
+
 
 
        public void checkValid(){
