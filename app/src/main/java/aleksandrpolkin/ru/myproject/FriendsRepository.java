@@ -6,6 +6,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -18,7 +19,8 @@ public class FriendsRepository {
     private DatabaseReference myRef = database.getReference("friends");
 
     public void loadFriends(@NonNull final FriendsLoadListener friendsLoadListener){
-        myRef.addValueEventListener(new ValueEventListener() {
+        Query query = myRef.orderByChild("name");
+        query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 friendsLoadListener.onFriendsLoaded(toFriendList(dataSnapshot));
