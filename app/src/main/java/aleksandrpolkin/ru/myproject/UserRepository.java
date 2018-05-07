@@ -20,6 +20,8 @@ public class UserRepository {
                         User user = dataSnapshot.getValue(User.class);
                         String key = dataSnapshot.getKey();
 
+                        // лучше проверять не равенство захардкоженной строке, а на равенство
+                        // currentUser.getUid()
                         if (key != "AIzaSyD5kfpkfwVlruOKeMlawbpttT7F0ElQsAQ") {
                             LatLng friend = new LatLng(user.latitude, user.longitude);
                             map.addMarker(new MarkerOptions().position(friend).title(user.name));

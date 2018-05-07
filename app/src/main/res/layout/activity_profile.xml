@@ -16,6 +16,13 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <!--1. А чего изображение не квадратное, а 51х48?)
+            2. По большему счету layout_marginLeft и  layout_marginStart
+            это одно и то же свойство, только для разных версий android.
+            Поэтому они должны быть одного размера
+            3. У тебя здесь не исползуется ConstraintLayout, поэтому и
+            свойства вроде layout_constraintBottom_toBottomOf использовать
+            бессмысленно-->
             <com.makeramen.roundedimageview.RoundedImageView
                 android:id="@+id/avatar"
                 android:layout_width="51dp"

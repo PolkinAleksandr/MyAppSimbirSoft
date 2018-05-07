@@ -1,5 +1,7 @@
 package aleksandrpolkin.ru.myproject;
 
+// Неиспользуемые импорты лучше удалять
+// Можно навести курсор на один из них и нажать Alt+Enter
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -22,6 +24,7 @@ import static aleksandrpolkin.ru.myproject.R.id.btnEntrance;
 public class LoginActivity extends AppCompatActivity{
 
     private FirebaseAuth mAuth;
+    // Не хватает пробелов до и после знака равно
     private final String TAG="myTag";
     private TextInputEditText email;
     private boolean lockemail=true;

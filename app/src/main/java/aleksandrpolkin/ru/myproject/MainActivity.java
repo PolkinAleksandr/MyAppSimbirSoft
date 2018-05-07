@@ -26,6 +26,13 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+
+    /*
+    При написании кода нужно руководствоваться кодстайлом гугла и стайлгайдом по android
+    https://google.github.io/styleguide/javaguide.html
+    https://github.com/ribot/android-guidelines/blob/master/project_and_code_guidelines.md
+    */
+
     private FirebaseAuth mAuth;
     private FriendsAdapter friendsAdapter;
     private TextView userNameView;
@@ -39,6 +46,7 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // Приведение типов при использовании findViewById излишне
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -58,7 +66,7 @@ public class MainActivity extends AppCompatActivity
 
         navigationView.setNavigationItemSelectedListener(this);
 
-        userNameView = navigationView.getHeaderView(0) .findViewById(R.id.userNameView);
+        userNameView = navigationView.getHeaderView(0).findViewById(R.id.userNameView);
         userEmailView = navigationView.getHeaderView(0).findViewById(R.id.userEmailView);
 
         final FriendsRepository friendsRepository = new FriendsRepository();
@@ -99,7 +107,9 @@ public class MainActivity extends AppCompatActivity
             startActivity(profileActivity);
             // Handle the camera action
         } else if (id == R.id.nav_exit) {
-           FirebaseAuth.getInstance().signOut();
+            FirebaseAuth.getInstance().signOut();
+            // Лучше вместо вызова onStart было сделать метод openLoginScreen()
+            // И вызывать его отсюда и из метода onStart()
             onStart();
         } else if (id == R.id.nav_map) {
             Intent mapsActivity = new Intent(MainActivity.this, MapsActivity.class);
@@ -117,8 +127,7 @@ public class MainActivity extends AppCompatActivity
         // Check if user is signed in (non-null) and update UI accordingly.
 
 
-
-
+        // Почему писать FirebaseAuth.getInstance(), если уже есть переменная mAuth
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         loadProfile();
@@ -129,36 +138,37 @@ public class MainActivity extends AppCompatActivity
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-        if (currentUser!=null) {
+        if (currentUser != null) {
 
-           // Toast.makeText(MainActivity.this, "You success!!", Toast.LENGTH_LONG).show();
-          //  TextView textView = findViewById(R.id.textView);
-//            textView.setText(currentUser.getEmail());
-        }else{
+            // Toast.makeText(MainActivity.this, "You success!!", Toast.LENGTH_LONG).show();
+            //  TextView textView = findViewById(R.id.textView);
+            //            textView.setText(currentUser.getEmail());
+        } else {
             startActivity(intent);
         }
     }
 
 
-    public void loadProfile(){
+    public void loadProfile() {
         profile = new Profile();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if(user != null){
-        mDatabase.child("profile").child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                profile = dataSnapshot.getValue(Profile.class);
-                if(profile!=null) {
-                 //   Toast.makeText(MainActivity.this, profile.getName(), Toast.LENGTH_SHORT).show();
-                    userNameView.setText(profile.getName());
+        if (user != null) {
+            mDatabase.child("profile").child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    profile = dataSnapshot.getValue(Profile.class);
+                    if (profile != null) {
+                        //   Toast.makeText(MainActivity.this, profile.getName(), Toast.LENGTH_SHORT).show();
+                        userNameView.setText(profile.getName());
+                    }
                 }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
+                }
+            });
 
-    }}
+        }
+    }
 }
