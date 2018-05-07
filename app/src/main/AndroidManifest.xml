@@ -23,6 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--Между элементами (в данном случае разными активити) лучше оставлять пустую строку,
+        чтобы было проще читать код-->
         <activity android:name=".ProfileActivity"
             android:parentActivityName=".MainActivity"/>
         <activity android:name=".ChatKitActivity" />
@@ -32,6 +34,9 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
+        <!--Обращай внимание на замечания Lint'а. Он подсвечивает желтым, что можно поправить.
+        Если поставить курсор внутрь подсвеченного кода и нажать Alt+Enter, то тебе предложат
+        исправить код автоматически-->
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"></activity>

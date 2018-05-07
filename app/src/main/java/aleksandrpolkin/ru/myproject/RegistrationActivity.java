@@ -25,6 +25,8 @@ public class RegistrationActivity extends AppCompatActivity {
 
     private Profile profile;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    // Название переменной не очевидное. Есть ведь уже database.
+    // Лучше назвать databaseReference
     private DatabaseReference mDatabase = database.getReference();
     private String TAG = "MyTag";
     private TextInputEditText email;
@@ -32,6 +34,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private TextInputEditText password_repeat;
     private boolean lockemail = true;
     private boolean lockpassword = true;
+    // Переменные не именуются через нижнее подчеркивание
     private boolean lockpassword_repeat = true;
     private Button save;
 
@@ -134,6 +137,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
     }
 
+    // Методы не именуются через нижнее подчеркивание
     public void checkPassword_repeat(){
         String s_password = password.getText().toString().trim();
         String s_password_repeat = password_repeat.getText().toString().trim();
